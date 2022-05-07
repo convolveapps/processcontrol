@@ -1,0 +1,98 @@
+.header-actions{
+    height: 3rem;
+    margin: 0rem 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--clr-white);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .status{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .action-container{
+        margin-left: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.report-container{
+    display: grid;
+    grid-template-columns: 60% 39%;
+    gap: 1rem;
+    height: 37rem;
+    padding: 0.5rem;
+
+    & > * {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+.pc_component-reports{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    & > * {
+        width: 100%;
+        height: 18rem;
+        background-color: var(--clr-white);
+        border-radius: 0.5rem;
+    }
+}
+
+.pc_component-parameters{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    & > * {
+        width: 100%;
+        height: 18rem;
+        background-color: var(--clr-white);
+        border-radius: 0.5rem;
+        padding: 0 0.5rem;
+    }
+}
+
+.card-heading{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0.125rem;
+
+    i{
+        font-size: var(--fs-20);
+    }
+
+    h4{
+        font-size: var(--fs-10);
+    }
+}
+
+.card-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+
+    h1{
+        font-size: var(--fs-50);
+    }
+}
+
+.card-chart{
+    height: 80%;
+}
