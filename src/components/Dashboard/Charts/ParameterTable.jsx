@@ -15,7 +15,7 @@ export const ParameterList = ({data, setParameterName}) =>{
   )
 }
 
-const ParameterTable = ({data}) => {
+const ParameterTable = ({data,handelParameterAction}) => {
   return (
       data ?
       <>
@@ -35,9 +35,11 @@ const ParameterTable = ({data}) => {
                   <td>{x.parameter}</td>
                   <td>{x.actual}</td>
                   <td>{x.recommended}</td>
-                  <td className="btn-container">
-                    <i className="fa-solid fa-circle-check text-success"></i>
-                    <i className="fa-solid fa-circle-xmark text-danger"></i>
+                  <td>
+                    <div className="btn-container">
+                      <i className="fa-solid fa-circle-check text-success" onClick={() => handelParameterAction(true)}></i>
+                      <i className="fa-solid fa-circle-xmark text-danger" onClick={() => handelParameterAction(false)}></i>
+                    </div>
                   </td>
                 </tr>
               ))

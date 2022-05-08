@@ -60,17 +60,16 @@ export const setParametersDataSet = (data, type) =>{
   return sData;
 }
 
-export const setHeatLossDataSet = (heatLossData, setHeatLossChartData, setHeatLossMin, setHeatLossMax, setHeatLossAvg, setHeatLossParameterList) =>{
+export const setHeatLossDataSet = (heatLossData, setHeatLossChartData) =>{
   let data = setDataSet(heatLossData,"Heat Loss");
   
 
-  setHeatLossChartData(data.dataSet);
-  setHeatLossMin(data.min);
-  setHeatLossMax(data.max);
-  setHeatLossAvg(data.avg);
-  if(data?.lastActual){
-
-    setHeatLossParameterList([
+  setHeatLossChartData({
+    chartData: data.dataSet,
+    min: data.min,
+    max: data.max,
+    avg: data.avg,
+    lastActual: [
       {
         parameter: "Fuel Rate",
         actual: data.lastActual["Fuel Rate Actual"],
@@ -91,6 +90,99 @@ export const setHeatLossDataSet = (heatLossData, setHeatLossChartData, setHeatLo
         actual: data.lastActual["Hot blast Actual"],
         recommended: data.lastActual["Hot blast Recommended"]
       }
-    ]);
-  }
+    ]
+
+  });
+}
+
+export const setHotMetalDataSet = (hotMetalData, setHotMetalChartData) =>{
+  let data = setDataSet(hotMetalData,"Hot Metal Temperature");
+  
+
+  setHotMetalChartData({
+    chartData: data.dataSet,
+    min: data.min,
+    max: data.max,
+    avg: data.avg,
+    lastActual: [
+      {
+        parameter: "Silicon",
+        actual: data.lastActual["Silicon Actual"],
+        recommended: data.lastActual["Silicon Recommended"]
+      },
+      {
+        parameter: "Phosphorous",
+        actual: data.lastActual["Phosphorous Actual"],
+        recommended: data.lastActual["Phosphorous Recommended"]
+      },
+      {
+        parameter: "Slag",
+        actual: data.lastActual["Slag Actual"],
+        recommended: data.lastActual["Slag Recommended"]
+      }
+    ]
+  });
+}
+
+export const setTensileStrengthDataSet = (tensileStrengthData, setTensileStrengthChartData) =>{
+  let data = setDataSet(tensileStrengthData,"Tensile Strength");
+  
+
+  setTensileStrengthChartData({
+    chartData: data.dataSet,
+    min: data.min,
+    max: data.max,
+    avg: data.avg,
+    lastActual: [
+      {
+        parameter: "Carbon",
+        actual: data.lastActual["Carbon Actual"],
+        recommended: data.lastActual["Carbon Recommended"]
+      },
+      {
+        parameter: "Manganese",
+        actual: data.lastActual["Manganese Actual"],
+        recommended: data.lastActual["Manganese Recommended"]
+      },
+      {
+        parameter: "Niobium",
+        actual: data.lastActual["Niobium Actual"],
+        recommended: data.lastActual["Niobium Recommended"]
+      },
+      {
+        parameter: "Coiling Temperature",
+        actual: data.lastActual["Coiling Temperature Actual"],
+        recommended: data.lastActual["Coiling Temperature Recommended"]
+      }
+    ]
+  });
+}
+
+export const setElongationDataSet = (elongationData, setElongationChartData) =>{
+  let data = setDataSet(elongationData,"Elongation");
+  
+
+  setElongationChartData({
+    chartData: data.dataSet,
+    min: data.min,
+    max: data.max,
+    avg: data.avg,
+    lastActual: [
+      {
+        parameter: "Tension",
+        actual: data.lastActual["Tension Actual"],
+        recommended: data.lastActual["Tension Recommended"]
+      },
+      {
+        parameter: "Force",
+        actual: data.lastActual["Force Actual"],
+        recommended: data.lastActual["Force Recommended"]
+      },
+      {
+        parameter: "Zinc Pot Temp",
+        actual: data.lastActual["Zinc Pot Temp Actual"],
+        recommended: data.lastActual["Zinc Pot Temp Recommended"]
+      }
+    ]
+  });
 }
