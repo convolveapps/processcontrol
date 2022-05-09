@@ -63,9 +63,9 @@ const DataSetChart = ({data}) =>  {
             <YAxis interval="preserveEnd" domain={[data.min-10, data.max+10]} />
             <Tooltip />
             <Legend />
-            <ReferenceLine y={data.max} label={<Label position="right" content={renderMax} />} stroke="#40c234" strokeWidth={1} isFront={true} />
-            <ReferenceLine y={data.min} label={<Label position="right" content={renderMin} />} stroke="#40c234" strokeWidth={1} isFront={true} />
-            <ReferenceLine y={data.avg} label={<Label position="right" content={renderAvg} />} stroke="#40c234" strokeWidth={1} isFront={true} />
+            <ReferenceLine y={data.max} stroke="#40c234" strokeWidth={1} isFront={true} />
+            <ReferenceLine y={data.min} stroke="#40c234" strokeWidth={1} isFront={true} />
+            <ReferenceLine y={data.avg} stroke="#40c234" strokeWidth={1} isFront={true} />
             <Line type="monotone" dataKey="actual" stroke="#4e37b3" strokeWidth={2} fill="#4e37b3" activeDot={{ r: 5 }} />
             <Line type="monotone" dataKey="predicted" stroke="#ff7752" strokeWidth={2} fill="#ff7752" activeDot={{ r: 5 }} />
           </LineChart>

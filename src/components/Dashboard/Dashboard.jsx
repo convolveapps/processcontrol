@@ -183,7 +183,7 @@ const Dashboard = () => {
         <div className="header-actions bg-shadow">
               <div className="status">
                 <i className="fa-solid fa-shield text-danger fs-20"></i>
-                <p>Heat loss &amp; Tensile strength predicted are critical!</p>
+                <p>Heat loss predicted is critical!</p>
               </div>
               <div className="action-container">
                   <div className="btn btn-bold btn-primary-outline" onClick={()=>editConstraints()}>Edit constraints</div>
@@ -212,7 +212,7 @@ const Dashboard = () => {
                       <HotMetalChart hotMetalChartData={hotMetalChartData} />
                   </div>
                 </div>
-                <div className="pc_component-report bg-shadow bg-danger-fade" onClick={() => handelDataSetChange("Tensile strength")}>
+                <div className="pc_component-report bg-shadow" onClick={() => handelDataSetChange("Tensile strength")}>
                   <div className="card-heading">
                     <h4>Tensile strength</h4>
                   </div>
