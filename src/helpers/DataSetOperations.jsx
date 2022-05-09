@@ -9,9 +9,12 @@ export const setDataSet = (data, type) => {
     let parameterPredicted=`${type} Predicted`;
   
     for(let i=0; i< data.length; i++){
+
+      const timeArray = new Date(data[i]["Timestamp"]).toString().split(" ");
+      const time = `${timeArray[1]}${timeArray[2]} ${timeArray[4].substring(0,5)}`;
       
       sData.push({
-        timestamp: data[i]["Timestamp"],
+        timestamp: time,
         actual: data[i][parameterActual],
         predicted: data[i][parameterPredicted]
       });
@@ -50,8 +53,11 @@ export const setParametersDataSet = (data, type) =>{
   let parameterRecommended=`${type} Recommended`;
 
   for(let i=0; i< data.length; i++){
+    const timeArray = new Date(data[i]["Timestamp"]).toString().split(" ");
+    const time = `${timeArray[1]}${timeArray[2]} ${timeArray[4].substring(0,5)}`;
+
     sData.push({
-      timestamp: data[i]["Timestamp"],
+      timestamp: time,
       actual: data[i][parameterActual],
       recommended: data[i][parameterRecommended]
     });

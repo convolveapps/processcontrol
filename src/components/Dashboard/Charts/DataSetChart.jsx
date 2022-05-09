@@ -1,4 +1,47 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Label } from 'recharts';
+
+const renderMax = ({ viewBox: { x, y } }) => {
+  const d = 10;
+  const r = d / 2;
+
+  const transform = `translate(${x-(d*3)} ${y-d})`;
+
+  return (
+      <g transform={transform}>
+        <rect x="0" y="0" width="30" height="20" fill="#40c234"></rect>
+        <text x="1" y="15"  fontSize="14" fill="white">Max</text>
+      </g>
+  );
+};
+
+const renderMin = ({ viewBox: { x, y } }) => {
+  const d = 10;
+  const r = d / 2;
+
+  const transform = `translate(${x-(d*3)} ${y-d})`;
+
+  return (
+      <g transform={transform}>
+        <rect x="0" y="0" width="30" height="20" fill="#40c234"></rect>
+        <text x="1" y="15"  fontSize="14" fill="white">Min</text>
+      </g>
+  );
+};
+
+const renderAvg = ({ viewBox: { x, y } }) => {
+  const d = 10;
+  const r = d / 2;
+
+  const transform = `translate(${x-(d*3)} ${y-d})`;
+
+  return (
+      <g transform={transform}>
+        <rect x="0" y="0" width="30" height="20" fill="#40c234"></rect>
+        <text x="1" y="15"  fontSize="14" fill="white">Avg</text>
+      </g>
+  );
+};
+
 
 const DataSetChart = ({data}) =>  {
   
@@ -17,12 +60,12 @@ const DataSetChart = ({data}) =>  {
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="timestamp" />
-            <YAxis interval="preserveEnd" />
+            <YAxis interval="preserveEnd" domain={[data.min-10, data.max+10]} />
             <Tooltip />
             <Legend />
-            <ReferenceLine y={data.max} label="Max" stroke="#40c234" strokeWidth={2} />
-            <ReferenceLine y={data.min} label="Min" stroke="#40c234" strokeWidth={2} />
-            <ReferenceLine y={data.avg} label="Avg" stroke="#40c234" strokeWidth={2} />
+            <ReferenceLine y={data.max} label={<Label position="right" content={renderMax} />} stroke="#40c234" strokeWidth={1} isFront={true} />
+            <ReferenceLine y={data.min} label={<Label position="right" content={renderMin} />} stroke="#40c234" strokeWidth={1} isFront={true} />
+            <ReferenceLine y={data.avg} label={<Label position="right" content={renderAvg} />} stroke="#40c234" strokeWidth={1} isFront={true} />
             <Line type="monotone" dataKey="actual" stroke="#4e37b3" strokeWidth={2} fill="#4e37b3" activeDot={{ r: 5 }} />
             <Line type="monotone" dataKey="predicted" stroke="#ff7752" strokeWidth={2} fill="#ff7752" activeDot={{ r: 5 }} />
           </LineChart>
